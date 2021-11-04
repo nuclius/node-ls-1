@@ -3,6 +3,7 @@ const express = require('express');
 const User = require('./users/model.js');
 
 const server = express();
+const errorMessage = process.env.ERRORMSG
 
 server.use(express.json());
 
@@ -51,7 +52,7 @@ server.get('/api/users/:id', (req, res) => {
     })
     .catch(() => {
       res.status(500).json({
-        message: 'The user information could not be retrieved',
+        message: errorMessage,
       });
     });
 });
