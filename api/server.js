@@ -3,7 +3,7 @@ const express = require('express');
 const User = require('./users/model.js');
 
 const server = express();
-const errorMessage = process.env.ERRORMSG
+const errorMessage = process.env.ERRORMSG || 'The user information could not be retrieved';
 
 server.use(express.json());
 
